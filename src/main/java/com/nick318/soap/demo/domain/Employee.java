@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @Accessors(chain = true)
-public class EmployeeDomain {
+public class Employee {
     private String firstName;
     private String lastName;
     private String address;
