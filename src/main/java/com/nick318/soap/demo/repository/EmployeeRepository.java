@@ -1,7 +1,7 @@
 package com.nick318.soap.demo.repository;
 
 
-import employees.Employee;
+import com.nick318.soap.demo.domain.Employee;
 
 /**
  * Repository for employees.
