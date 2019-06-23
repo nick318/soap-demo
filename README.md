@@ -11,7 +11,7 @@ Wsdl is allowed by - http://localhost:8080/service/employeeDetailsWsdl.wsdl
 Then you can create project inside SoapUI using given WSDL
 
 Example of request:<br>
-<code>
+'''
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="employees">
    <soapenv:Header/>
    <soapenv:Body>
@@ -20,10 +20,10 @@ Example of request:<br>
       </emp:EmployeeDetailsRequest>
    </soapenv:Body>
 </soapenv:Envelope>
-</code>
+'''
 
 Answer:<br>
-<code>
+'''
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
    <SOAP-ENV:Header/>
    <SOAP-ENV:Body>
@@ -36,5 +36,5 @@ Answer:<br>
       </ns2:EmployeeDetailsResponse>
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-</code>
+'''
 
