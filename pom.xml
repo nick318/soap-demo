@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<jaxb2-maven-plugin.version>1.6</jaxb2-maven-plugin.version>
+		<orika-core.version>1.4.2</orika-core.version>
 	</properties>
 
 	<dependencies>
@@ -42,6 +43,20 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>ma.glasnost.orika</groupId>
+			<artifactId>orika-core</artifactId>
+			<version>${orika-core.version}</version><!-- or latest version -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.rakugakibox.spring.boot/orika-spring-boot-starter -->
+		<dependency>
+			<groupId>net.rakugakibox.spring.boot</groupId>
+			<artifactId>orika-spring-boot-starter</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

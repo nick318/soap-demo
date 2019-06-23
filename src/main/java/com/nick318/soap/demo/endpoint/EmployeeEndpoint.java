@@ -1,6 +1,6 @@
 package com.nick318.soap.demo.endpoint;
 
-import com.nick318.soap.demo.repository.EmployeeRepository;
+import com.nick318.soap.demo.service.EmployeeService;
 import employees.EmployeeDetailsRequest;
 import employees.EmployeeDetailsResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,13 +15,13 @@ public class EmployeeEndpoint
 {
     public static final String NAMESPACE_URI = "employees";
 
-    private final EmployeeRepository EmployeeRepository;
+    private final EmployeeService employeeService;
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "EmployeeDetailsRequest")
     @ResponsePayload
     public EmployeeDetailsResponse getEmployee(@RequestPayload EmployeeDetailsRequest request) {
         EmployeeDetailsResponse response = new EmployeeDetailsResponse();
-        response.setEmployee(EmployeeRepository.findByName(request.getName()));
+        response.setEmployee(employeeService.findByName(request.getName()));
         return response;
     }
 }

@@ -1,25 +1,41 @@
 package com.nick318.soap.demo.repository;
 
+import com.nick318.soap.demo.domain.EmployeeDomain;
 import org.springframework.stereotype.Component;
-import employees.Employee;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 public class LocalEmployeeRepository implements EmployeeRepository {
 
-    private final Map<String, Employee> employees = new HashMap<>();
+    private Map<String, EmployeeDomain> employees = new HashMap<>();
 
     @PostConstruct
     public void initData() {
-
+        AtomicInteger counter = new AtomicInteger();
+        employees = Stream.of(
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet()),
+                new EmployeeDomain().setFirstName("Ivan " + counter.incrementAndGet())
+        ).collect(Collectors.toMap(EmployeeDomain::getFirstName, Function.identity()));
     }
 
 
     @Override
-    public Employee findByName(String name) {
+    public EmployeeDomain findByName(String name) {
         return employees.get(name);
     }
 }

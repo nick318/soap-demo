@@ -1,7 +1,7 @@
 package com.nick318.soap.demo.repository;
 
 
-import employees.Employee;
+import com.nick318.soap.demo.domain.EmployeeDomain;
 
 /**
  * Repository for employees.
@@ -9,5 +9,5 @@ import employees.Employee;
  * @author Nikita_Salomatin
  */
 public interface EmployeeRepository {
-    Employee findByName(String name);
+    EmployeeDomain findByName(String name);
 }
